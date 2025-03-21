@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hotel-booking-styles.css">
+    <title>Register</title>
+</head>
+<body>
+    <header>
+        <h1>Create Your Account</h1>
+    </header>
+    <form action="register.php" method="POST" class="form-container">
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" id="full_name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" id="phone" required>
+        
+        <button type="submit">Register</button>
+    </form>
+    <footer>
+        <p>&copy; 2024 Lenkov Luxury Hotel.</p>
+    </footer>
+</body>
+</html>

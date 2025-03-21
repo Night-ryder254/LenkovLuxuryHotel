@@ -1,0 +1,45 @@
+Array
+(
+    [Body] => Array
+        (
+            [stkCallback] => Array
+                (
+                    [MerchantRequestID] => 9434-45b2-b858-60c64fbd855a31517
+                    [CheckoutRequestID] => ws_CO_25112024102453215770213512
+                    [ResultCode] => 2001
+                    [ResultDesc] => The initiator information is invalid.
+                )
+
+        )
+
+)
+Array
+(
+    [Body] => Array
+        (
+            [stkCallback] => Array
+                (
+                    [MerchantRequestID] => b63c-4f5b-830c-97562f598bca9609
+                    [CheckoutRequestID] => ws_CO_25112024102916718791513265
+                    [ResultCode] => 1037
+                    [ResultDesc] => DS timeout user cannot be reached
+                )
+
+        )
+
+)
+Array
+(
+    [Body] => Array
+        (
+            [stkCallback] => Array
+                (
+                    [MerchantRequestID] => 24d3-4f75-872a-6fd999327d4f30316
+                    [CheckoutRequestID] => ws_CO_25112024103442174714540101
+                    [ResultCode] => 1032
+                    [ResultDesc] => Request cancelled by user
+                )
+
+        )
+
+)

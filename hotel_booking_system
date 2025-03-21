@@ -1,0 +1,68 @@
+CREATE DATABASE hotel_booking_system;
+USE hotel_booking_system;
+
+-- Customers table
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255),
+    phone VARCHAR(15),
+    profile_picture VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Room types table
+CREATE TABLE room_types (
+    room_type_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    description TEXT,
+    price_per_night DECIMAL (10,2) NOT NULL,
+    capacity INT NOT NULL,
+    image_url VARCHAR(255) 
+);
+
+-- Rooms table
+CREATE TABLE rooms (
+    room_id INT AUTO_INCREMENT PRIMARY KEY,
+    room_type_id INT,
+    room_number VARCHAR(10) NOT NULL UNIQUE,
+    description TEXT,
+    price DECIMAL(10,2),
+    status ENUM('available', 'occupied', 'maintenance') DEFAULT 'available',
+    FOREIGN KEY (room_type_id) REFERENCES room_types(room_type_id)
+);
+
+-- Bookings table
+CREATE TABLE bookings (
+    booking_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT,
+    room_id INT,
+    check_in_date DATE NOT NULL,
+    check_out_date DATE NOT NULL,
+    total_price DECIMAL(10,2) NOT NULL,
+    booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('Booked', 'Cancelled') DEFAULT 'Booked',
+    payment_status ENUM('Pending', 'Paid', 'Failed') DEFAULT 'Pending',
+    mpesa_reference VARCHAR(50),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (room_id) REFERENCES rooms(room_id)
+);
+
+-- Insert sample room types
+INSERT INTO room_types (name, description, price_per_night, capacity, image_url) VALUES
+('Single Room', 'Comfortable room with single bed, ideal for solo travelers', 5000, 1, '/rooms images/room_09.jpg'),
+('Double Room', 'Spacious room with double bed, great for couples or friends', 10000, 2, '/rooms images/2.jpg'),
+('Suite Room', 'Luxury suite with separate living area and premium amenities', 15000, 3, '/rooms images/caption.jpg');
+
+-- Insert sample rooms
+INSERT INTO rooms (room_number, room_type_id, price, status) VALUES
+('101', 1, 5000, 'available'),
+('102', 1, 5000, 'available'),
+('103', 1, 5000, 'available'),
+('201', 2, 10000, 'available'),
+('202', 2, 10000, 'available'),
+('203', 2, 10000, 'available'),
+('301', 3, 15000, 'available'),
+('302', 3, 15000, 'available'),
+('303', 3, 15000, 'available');
