@@ -1,0 +1,28 @@
+# Database configuration
+db.php
+
+# Environment files
+.env
+*.env
+
+# M-Pesa API credentials
+mpesa_config.php
+mpesaCredentials.php
+
+# Logs
+*.log
+error_log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.sql
+*.backup
